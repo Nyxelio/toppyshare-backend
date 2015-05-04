@@ -1,0 +1,100 @@
+FORMAT: 1A
+HOST: http://polls.apiblueprint.org/
+
+# ToppyShare
+
+L'API permet d'interagir avec le backend. Elle est au format REST et son accès est contrôlé par un token d'authentification.
+L'API permet d'accéder aux utilisateurs, aux tops et aux favoris.
+
+# ToppyShare API Root [/api/v1/]
+
+
+## Point d'entrée Users [GET]
+
++ Response 200 (application/json)
+
+        {
+            "users_url": "/users"
+        }
+
+## Group User
+
+## Liste des User [/users/{user_id}]
+
+Un User a les attributs suivants:
+
++ name
++ password
++ mail
++ lang
++ country
++ categories
++ Parameters
+    + user_id (required, number, `1`) ... ID du User
+
+### Voir les détails d'un User [GET]
+
++ Response 200 (application/json)
+
+                {
+                    "name": "Arnold",
+                    "password": "azerty",
+                    "mail": "arnold@nodomain.com",
+                    "lang": "fr",
+                    "country": "fr",
+                    "categories": [ 'movies', 'music' ],
+                    "created_at": "2015-05-04T09:00:51.620Z",
+                    "updated_at": "2015-05-04T09:00:51.620Z"
+                }
+
+### Créer un nouvel User [POST]
+
+Nous pouvons créer un nouvel utilisateur.
+
++ name (string) - Le pseudo de l'utilisateur
++ password (string) - Le mot de passe
++ mail (string) - L'adresse mail
++ lang (string) - La langue d'affichage
++ country (string) - Le pays de consultation
++ categories (array[string]) - La collection des catégories suivies par l'utilisateur
+
++ Request (application/json)
+
+            {
+                "name": "Merridia",
+                "password": "azerty",
+                "mail": "merridia@nodomain.com",
+                "lang": "fr",
+                "country": "fr",
+                "categories": [
+                    "Movies",
+                    "Music",
+                    "Hobbies"
+                ],
+                "auth_token": "1234567890"
+            }
+
++ Response 201 (application/json)
+
+    + Headers
+
+            Location: /users/2
+
+    + Body
+
+                {
+                    "id": "2"
+                    "name": "Merridia",
+                    "password": "azerty",
+                    "mail": "merridia@nodomain.com",
+                    "lang": "fr",
+                    "country": "fr",
+                    "categories": [
+                        "Movies",
+                        "Music",
+                        "Hobbies"
+                    ],
+                    "created_at": "2015-05-05T09:00:51.620Z",
+                    "updated_at": "2015-05-05T09:00:51.620Z"
+                }
+
