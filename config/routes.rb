@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
-  resources :tops
-  resources :users
+  resources :tops, :defaults => { :format => :json }
+  resources :users, :defaults => { :format => :json }
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
