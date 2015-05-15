@@ -1,4 +1,48 @@
-class UsersController < ApplicationController
+class Api::V1::UsersController < ApplicationController
+  protect_from_forgery with: :null_session
+
+  before_filter :skip_trackable
+  before_filter :authenticate_user!, :except => :create
+  #before_filter :authenticate_user!, :except => [:create, :show]
+
+  #def show
+  #  render :json => {:info => "Current User", :user => current_user, :auth_token => current_user.authentication_token}, :status => 200
+  #end
+  def show_current_user
+    render :status => 200,
+           :json => { :success => true,
+                      :info => "Current User",
+                      :user => current_user,
+                      :auth_token => current_user.authentication_token}
+
+  end
+
+  def create
+    @user = User.create(user_params)
+    if @user.valid?
+      sign_in(@user)
+      respond_with @user, :location => api_users_path
+    else
+      respond_with @user.errors, :location => api_users_path
+    end
+  end
+
+  def update
+    respond_with :api, User.update(current_user.id, user_params)
+  end
+
+  def destroy
+    print "user destroy: #{current_user}"
+    respond_with :api, User.find(current_user.id).destroy
+  end
+
+  private
+
+  def user_params
+    params.require(:user).permit(:name, :email, :password, :password_confirmation, :lang, :country, :categories)
+  end
+
+=begin
   before_action :set_user, only: [:show, :edit, :update, :destroy]
 
   # GET /users
@@ -71,4 +115,5 @@ class UsersController < ApplicationController
     def user_params
       params.require(:user).permit(:name, :password, :mail, :lang, :country, :categories)
     end
+=end
 end
