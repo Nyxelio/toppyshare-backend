@@ -6,7 +6,7 @@ class Api::V1::UsersController < Api::V1::BaseController
   respond_to :json
 
   def show
-    render :status => 200,
+    render :status => :ok,
            :json => { :success => true,
                       :info => 'Current User',
                       :user => current_user}
@@ -24,11 +24,28 @@ class Api::V1::UsersController < Api::V1::BaseController
   end
 
   def update
-    respond_with :api, User.update(current_user.id, user_params)
+    if User.update(current_user.id, user_params)
+      render :status => :ok,
+             :json => { :success => true,
+                        :info => 'User updated',
+                        :user => current_user}
+    else
+      render :status => :unprocessable_entity,
+             :json => { :success => false
+             }
+    end
   end
 
   def destroy
-    respond_with :api, User.find(current_user.id).destroy
+    if User.find(current_user.id).destroy
+      render :status => :ok,
+             :json => { :success => true,
+                        :info => 'User deleted'}
+    else
+      render :status => :unprocessable_entity,
+             :json => { :success => false
+             }
+    end
   end
 
   private

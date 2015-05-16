@@ -5,64 +5,83 @@ class Api::V1::TopsController < Api::V1::BaseController
 
   before_filter :authenticate_user!, :except => [:index, :show]
 
+  attr_reader :user_id
+
 
   # GET /tops
-  # GET /tops.json
   def index
     @tops = Top.all
   end
 
   # GET /tops/1
-  # GET /tops/1.json
   def show
   end
 
-  # GET /tops/new
-  def new
-    @top = Top.new
-  end
-
-  # GET /tops/1/edit
-  def edit
-  end
-
   # POST /tops
-  # POST /tops.json
   def create
     @top = Top.new(top_params)
+    @top.user = current_user
 
-    respond_to do |format|
-      if @top.save
-        #format.html { redirect_to @top, notice: 'Top was successfully created.' }
-        format.json { render :show, status: :created, location: @top }
-      else
-        #format.html { render :new }
-        format.json { render json: @top.errors, status: :unprocessable_entity }
-      end
+    if @top.save
+      render :status => :created,
+             :json => { :success => true,
+                        :info => @top
+             }
+    else
+      render :status => :unprocessable_entity,
+             :json => { :success => true,
+                        :info => @top.errors
+             }
     end
+
   end
 
   # PATCH/PUT /tops/1
-  # PATCH/PUT /tops/1.json
   def update
-    respond_to do |format|
+
+    if @top.user == current_user
+
       if @top.update(top_params)
-        format.html { redirect_to @top, notice: 'Top was successfully updated.' }
-        format.json { render :show, status: :ok, location: @top }
+        render :status => :ok,
+               :json => { :success => true,
+                          :info => @top
+               }
       else
-        format.html { render :edit }
-        format.json { render json: @top.errors, status: :unprocessable_entity }
+        render :status => :unprocessable_entity,
+               :json => { :success => true,
+                          :info => @top.errors
+               }
       end
+
+    else
+      render :status => :unauthorized,
+             :json => { :success => false,
+                        :info => :unauthorized
+             }
     end
   end
 
   # DELETE /tops/1
-  # DELETE /tops/1.json
   def destroy
-    @top.destroy
-    respond_to do |format|
-      format.html { redirect_to tops_url, notice: 'Top was successfully destroyed.' }
-      format.json { head :no_content }
+    if @top.user == current_user
+
+      if @top.destroy
+        render :status => :ok,
+               :json => { :success => true,
+                          :info => 'Top deleted'
+               }
+      else
+        render :status => :unprocessable_entity,
+               :json => { :success => true,
+                          :info => @top.errors
+               }
+      end
+
+    else
+      render :status => :unauthorized,
+             :json => { :success => false,
+                        :info => :unauthorized
+             }
     end
   end
 
@@ -74,6 +93,6 @@ class Api::V1::TopsController < Api::V1::BaseController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def top_params
-      params.require(:top).permit(:title, :tags, :category, :user_id)
+      params.require(:top).permit(:title, :tags, :category)
     end
 end
