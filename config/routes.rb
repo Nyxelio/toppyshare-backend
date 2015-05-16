@@ -5,18 +5,13 @@ Rails.application.routes.draw do
     scope module: :v1 do
 
       devise_scope :user do
-        match '/sessions' => 'sessions#create', :via => :post
-        match '/sessions' => 'sessions#destroy', :via => :delete
+        match 'sessions' => 'authentication/sessions#create', :via => :post
+        match 'sessions' => 'authentication/sessions#destroy', :via => :delete
+        match 'users' => 'users#show', :via => :get
+        match 'users' => 'users#update', :via => :put
+        match 'users' => 'users#destroy', :via => :delete
       end
 
-      #resources :record
-
-      resources :users, only: [:create]
-      #match '/users' => 'users#show', :via => :get
-      #match '/users' => 'users#update', :via => :put
-      #match '/users' => 'users#destroy', :via => :delete
-
-      get 'current_user' => 'users#show_current_user', :as => 'show_current_user'
 
       resources :tops, :defaults => { :format => :json }
     end

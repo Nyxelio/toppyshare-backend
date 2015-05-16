@@ -3,6 +3,8 @@ class Api::V1::BaseController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :null_session
 
+  acts_as_token_authentication_handler_for User, fallback_to_devise: false
+
   respond_to :json
 
   rescue_from Exception, with: :generic_exception
