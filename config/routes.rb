@@ -8,6 +8,7 @@ Rails.application.routes.draw do
         match 'sessions' => 'authentication/sessions#create', :via => :post
         match 'sessions' => 'authentication/sessions#destroy', :via => :delete
         match 'users' => 'users#show', :via => :get
+        match 'users' => 'users#create', :via => :post
         match 'users' => 'users#update', :via => :put
         match 'users' => 'users#destroy', :via => :delete
       end
