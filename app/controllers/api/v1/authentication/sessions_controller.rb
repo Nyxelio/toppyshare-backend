@@ -1,8 +1,6 @@
 class Api::V1::Authentication::SessionsController < Devise::SessionsController
   protect_from_forgery with: :null_session
 
-  before_filter :verify_signed_out_user, :except=>[:destroy]
-
   def create
     warden.authenticate!(:scope => resource_name, :recall => "#{controller_path}#failure")
     render :status => 200,

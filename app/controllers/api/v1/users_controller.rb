@@ -1,7 +1,7 @@
 class Api::V1::UsersController < Api::V1::BaseController
   protect_from_forgery with: :null_session
 
-  before_filter :authenticate_user!, :except => [:create, :show]
+  before_filter :authenticate_user!, :except => [:create]
 
   respond_to :json
 

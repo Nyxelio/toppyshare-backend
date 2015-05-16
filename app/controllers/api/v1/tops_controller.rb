@@ -1,5 +1,10 @@
-class TopsController < ApplicationController
+class Api::V1::TopsController < Api::V1::BaseController
   before_action :set_top, only: [:show, :edit, :update, :destroy]
+
+  respond_to :json
+
+  before_filter :authenticate_user!, :except => [:index, :show]
+
 
   # GET /tops
   # GET /tops.json
@@ -28,10 +33,10 @@ class TopsController < ApplicationController
 
     respond_to do |format|
       if @top.save
-        format.html { redirect_to @top, notice: 'Top was successfully created.' }
+        #format.html { redirect_to @top, notice: 'Top was successfully created.' }
         format.json { render :show, status: :created, location: @top }
       else
-        format.html { render :new }
+        #format.html { render :new }
         format.json { render json: @top.errors, status: :unprocessable_entity }
       end
     end
