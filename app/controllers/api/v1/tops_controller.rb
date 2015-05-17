@@ -10,7 +10,22 @@ class Api::V1::TopsController < Api::V1::BaseController
 
   # GET /tops
   def index
-    @tops = Top.all
+
+    if params[:filters]
+      #FIXME
+      unless params[:filters][:start_date].nil? and params[:filters][:end_date].nil?
+        start_date = Date.strptime(params[:filters][:start_date], '%d/%m/%Y')
+        end_date = Date.strptime(params[:filters][:end_date], '%d/%m/%Y')
+        @tops = Top.where('created_at >= ? and created_at <=?', start_date, end_date).order('created_at desc')
+      end
+
+      unless params[:filters][:user_id].nil?
+        @tops = Top.where(:user => params[:filters][:user_id])
+      end
+
+    else
+      @tops = Top.all
+    end
   end
 
   # GET /tops/1
@@ -93,6 +108,6 @@ class Api::V1::TopsController < Api::V1::BaseController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def top_params
-      params.require(:top).permit(:title, :tags, :category)
+      params.require(:top).permit(:title, :tags, :category, :items, :filters)
     end
 end
