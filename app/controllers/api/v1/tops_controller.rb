@@ -37,10 +37,12 @@ class Api::V1::TopsController < Api::V1::BaseController
     @top = Top.new(top_params)
     @top.user = current_user
 
+
     if @top.save
+
       render :status => :created,
              :json => { :success => true,
-                        :info => @top
+                        :info => @top.to_json( include: :items )
              }
     else
       render :status => :unprocessable_entity,
@@ -108,6 +110,6 @@ class Api::V1::TopsController < Api::V1::BaseController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def top_params
-      params.require(:top).permit(:title, :tags, :category, :items, :filters)
+      params.require(:top).permit(:title, :tags, :category, :filters, items_attributes: [:id, :title])
     end
 end
