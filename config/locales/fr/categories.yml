@@ -1,0 +1,12 @@
+fr:
+  categories:
+    cinema: 'Cinéma'
+    sport: 'Sports & Loisirs'
+    music: 'Musique'
+    cooking: 'Cuisine'
+    accessory: 'Accessoires'
+    people: 'People'
+    art: 'Art & littérature'
+    videogame: 'Jeux vidéos'
+    movie: 'Télévisuel'
+    travel: 'Voyages'

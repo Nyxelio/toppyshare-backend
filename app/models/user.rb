@@ -11,4 +11,9 @@ class User < ActiveRecord::Base
   validates :name, presence: true, uniqueness: { case_sensitive: false }
   validates :email, presence: true
 
+  has_many :followers, class_name: 'User',
+           foreign_key: 'follower_id'
+
+  belongs_to :follower, class_name: 'User'
+
 end

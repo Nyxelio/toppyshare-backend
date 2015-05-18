@@ -23,6 +23,14 @@ class Api::V1::TopsController < Api::V1::BaseController
         @tops = Top.where(:user => params[:filters][:user_id])
       end
 
+      unless params[:filters][:search].nil?
+        @tops = Top.where(:title => params[:filters][:title])
+      end
+
+      unless params[:filters][:category].nil?
+        @tops = Top.where(:category => params[:filters][:category])
+      end
+
     else
       @tops = Top.all
     end
@@ -59,7 +67,7 @@ class Api::V1::TopsController < Api::V1::BaseController
       if @top.update(top_params)
         render :status => :ok,
                :json => { :success => true,
-                          :info => @top
+                          :info => @top.to_json( include: :items )
                }
       else
         render :status => :unprocessable_entity,

@@ -10,8 +10,10 @@ class Api::V1::Authentication::SessionsController < Devise::SessionsController
   end
 
   def destroy
-    #warden.authenticate!(:scope => resource_name, :recall => "#{controller_path}#failure")
-    #current_user.update_column(:authentication_token, nil)
+
+    #FIXME
+    warden.authenticate!(:scope => resource_name, :recall => "#{controller_path}#failure")
+    current_user.update_column(:authentication_token, nil)
 
     sign_out
     render :status => 200,
