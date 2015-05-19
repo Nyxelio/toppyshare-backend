@@ -1,4 +1,4 @@
-class ItemsController < ApplicationController
+class Api::V1::ItemsController < Api::V1::BaseController
 
   def create
     @top = Top.find(params[:top_id])
