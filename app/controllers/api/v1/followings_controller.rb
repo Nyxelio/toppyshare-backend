@@ -14,48 +14,33 @@ class Api::V1::FollowingsController < Api::V1::BaseController
     else
       @followings = User.find(current_user.id).followings unless nil?
     end
+
+    respond_with @followings
+
   end
 
   def create
 
-   user = User.find(params[:user][:id])
-   user.followings << current_user
+    current_user.followings << User.find(params[:user][:id])
 
-   if user.save
-     respond_with current_user, :location => api_users_path
+   if current_user.save
+     respond_with current_user, :location => api_users_path, include: :followings
    else
      respond_with user.errors, :location => api_users_path
    end
   end
 
   def update
-    if User.update(current_user.id, user_params)
-      render :status => :ok,
-             :json => { :success => true,
-                        :info => 'User updated',
-                        :user => current_user}
-    else
-      render :status => :unprocessable_entity,
-             :json => { :success => false
-             }
-    end
+
   end
 
   def destroy
-    if User.find(current_user.id).destroy
-      render :status => :ok,
-             :json => { :success => true,
-                        :info => 'User deleted'}
-    else
-      render :status => :unprocessable_entity,
-             :json => { :success => false
-             }
-    end
+
   end
 
   private
 
-  def follower_params
+  def following_params
     params.require(:user).permit(:user_id)
   end
 

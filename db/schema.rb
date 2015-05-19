@@ -13,6 +13,14 @@
 
 ActiveRecord::Schema.define(version: 20150518103244) do
 
+  create_table "followings", id: false, force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "following_user_id"
+  end
+
+  add_index "followings", ["following_user_id", "user_id"], name: "index_followings_on_following_user_id_and_user_id", unique: true
+  add_index "followings", ["user_id", "following_user_id"], name: "index_followings_on_user_id_and_following_user_id", unique: true
+
   create_table "items", force: :cascade do |t|
     t.string   "title"
     t.integer  "top_id"
@@ -49,12 +57,10 @@ ActiveRecord::Schema.define(version: 20150518103244) do
     t.string   "country"
     t.text     "categories"
     t.string   "authentication_token"
-    t.integer  "following_id"
   end
 
   add_index "users", ["authentication_token"], name: "index_users_on_authentication_token"
   add_index "users", ["email"], name: "index_users_on_email", unique: true
-  add_index "users", ["following_id"], name: "index_users_on_following_id"
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
 
 end
