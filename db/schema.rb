@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150518103244) do
+ActiveRecord::Schema.define(version: 20150519225515) do
 
   create_table "followings", id: false, force: :cascade do |t|
     t.integer "user_id"
@@ -35,8 +35,9 @@ ActiveRecord::Schema.define(version: 20150518103244) do
     t.text     "tags"
     t.string   "category"
     t.integer  "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.integer  "forked_top_id"
   end
 
   add_index "tops", ["user_id"], name: "index_tops_on_user_id"

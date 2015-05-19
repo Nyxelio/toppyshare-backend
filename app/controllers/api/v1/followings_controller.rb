@@ -26,16 +26,13 @@ class Api::V1::FollowingsController < Api::V1::BaseController
    if current_user.save
      respond_with current_user, :location => api_users_path, include: :followings
    else
-     respond_with user.errors, :location => api_users_path
+     respond_with current_user.errors, :location => api_users_path
    end
   end
 
-  def update
-
-  end
 
   def destroy
-
+  #TODO
   end
 
   private

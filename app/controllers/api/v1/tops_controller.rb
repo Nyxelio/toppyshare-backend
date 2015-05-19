@@ -117,7 +117,7 @@ class Api::V1::TopsController < Api::V1::BaseController
     # Never trust parameters from the scary internet, only allow the white list through.
     def top_params
       # params.require(:top).permit(:title, :tags, :category, :filters, items_attributes: [:id, :title])
-      top_params = params.require(:top).permit(:title, :tags, :category, :filters, items: [:id, :title])
+      top_params = params.require(:top).permit(:title, :tags, :category, :filters, :forked_top_id, items: [:id, :title])
       top_params[:items_attributes] = top_params.delete :items
       top_params
     end
