@@ -49,12 +49,12 @@ ActiveRecord::Schema.define(version: 20150518103244) do
     t.string   "country"
     t.text     "categories"
     t.string   "authentication_token"
-    t.integer  "follower_id"
+    t.integer  "following_id"
   end
 
   add_index "users", ["authentication_token"], name: "index_users_on_authentication_token"
   add_index "users", ["email"], name: "index_users_on_email", unique: true
-  add_index "users", ["follower_id"], name: "index_users_on_follower_id"
+  add_index "users", ["following_id"], name: "index_users_on_following_id"
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
 
 end

@@ -19,7 +19,9 @@ class Api::V1::UsersController < Api::V1::BaseController
       sign_in(@user)
       respond_with @user, :location => api_users_path
     else
-      respond_with @user.errors, :location => api_users_path
+      render :status => :unprocessable_entity,
+             :json => { :success => false,
+                        :user => @user.errors}
     end
   end
 

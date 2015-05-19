@@ -15,7 +15,7 @@ Rails.application.routes.draw do
 
 
       resources :tops, :defaults => { :format => :json }
-      resources :followers, :defaults => { :format => :json }
+      resources :followings, :defaults => { :format => :json }
 
     end
   end

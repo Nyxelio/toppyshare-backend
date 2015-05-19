@@ -1,4 +1,4 @@
-class Api::V1::FollowersController < Api::V1::BaseController
+class Api::V1::FollowingsController < Api::V1::BaseController
 
   protect_from_forgery with: :null_session
 
@@ -6,20 +6,20 @@ class Api::V1::FollowersController < Api::V1::BaseController
 
   respond_to :json
 
-  # GET /followers
+  # GET /followings
   def index
 
     if params[:user_id]
-      @followers = User.find(params[:user_id]).followers unless nil?
+      @followings = User.find(params[:user_id]).followings unless nil?
     else
-      @followers = User.find(current_user.id).followers unless nil?
+      @followings = User.find(current_user.id).followings unless nil?
     end
   end
 
   def create
 
    user = User.find(params[:user][:id])
-   user.followers << current_user
+   user.followings << current_user
 
    if user.save
      respond_with current_user, :location => api_users_path
