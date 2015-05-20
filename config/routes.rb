@@ -18,6 +18,8 @@ Rails.application.routes.draw do
       resources :followings, :defaults => { :format => :json }
       resources :followers, :defaults => { :format => :json }
 
+      match 'categories' => 'ui#get_all_categories', :via => :get
+
     end
   end
 
