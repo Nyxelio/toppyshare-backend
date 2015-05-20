@@ -2,14 +2,16 @@
 
 one:
   name: Arnold
-  email: arnold@nulldomain.tld
-  lang: MyString
-  country: MyString
-  categories: MyText
+  lang: fr
+  country: fr
+  categories: [ 'movie', 'music' ]
+  email: arnold@nodomain.tld
+  encrypted_password: $2a$10$Am7eN24BTd0abP9ZsO7Gv.ksA7zZRSC/ckWxOPdoOKP8OltqNwYpu
 
 two:
-  name: MyString
-  email: arnold@nulldomain.tld
-  lang: MyString
-  country: MyString
-  categories: MyText
+  name: Rosy
+  lang: en
+  country: en
+  categories: [ 'travel' ]
+  email: rosy@nodomain.tld
+  encrypted_password: $2a$10$Y1DAjw6AAUUTfHf9Gc8/eekXYiHsSo61LSn.ZW5plCkiU5tIjTsb6

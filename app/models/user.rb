@@ -9,7 +9,7 @@ class User < ActiveRecord::Base
   has_many :tops, dependent: :destroy
 
   validates :name, presence: true, uniqueness: { case_sensitive: false }
-  validates :email, presence: true
+  validates :email, presence: true, uniqueness: { case_sensitive: false }
 
   has_and_belongs_to_many :followings,
                           class_name: "User",
