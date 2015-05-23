@@ -38,6 +38,23 @@ class Api::V1::UsersController < Api::V1::BaseController
     end
   end
 
+  def change_password
+    # if @user.update_with_password(user_params)
+    if User.update(current_user.id, user_params)
+      sign_in current_user
+
+      render :status => :ok,
+             :json => { :success => true,
+                        :info => 'Password updated',
+                        :user => current_user}
+    else
+      # render "edit"
+      render :status => :unprocessable_entity,
+             :json => { :success => false
+             }
+    end
+  end
+
   def destroy
     if User.find(current_user.id).destroy
       render :status => :ok,
@@ -53,6 +70,7 @@ class Api::V1::UsersController < Api::V1::BaseController
   private
 
   def user_params
+    # params.require(:user).permit(:name, :email, :password, :password_confirmation, :lang, :country, :categories, :current_password)
     params.require(:user).permit(:name, :email, :password, :password_confirmation, :lang, :country, :categories)
   end
 end

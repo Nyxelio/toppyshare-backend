@@ -11,6 +11,7 @@ Rails.application.routes.draw do
         match 'users' => 'users#create', :via => :post
         match 'users' => 'users#update', :via => :put
         match 'users' => 'users#destroy', :via => :delete
+        match 'users/change_password' => 'users#change_password', :via => :put
       end
 
 
