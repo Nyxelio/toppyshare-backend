@@ -2,9 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3224e4cb-50c4-43cd-b774-67479e5d7568" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Gemfile.lock" afterPath="$PROJECT_DIR$/Gemfile.lock" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Gemfile" afterPath="$PROJECT_DIR$/Gemfile" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/toppyshare-backend.iml" afterPath="$PROJECT_DIR$/.idea/toppyshare-backend.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="toppyshare-backend.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -52,11 +51,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ui_controller.rb" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/controllers/api/v1/ui_controller.rb">
+      <file leaf-file-name="user.rb" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/models/user.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="378">
-              <caret line="8" column="7" selection-start-line="8" selection-start-column="7" selection-end-line="8" selection-end-column="7" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="558">
+              <caret line="8" column="37" selection-start-line="8" selection-start-column="37" selection-end-line="8" selection-end-column="37" />
               <folding />
             </state>
           </provider>
@@ -65,18 +64,8 @@
       <file leaf-file-name="Gemfile" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Gemfile">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.51264757" vertical-offset="146" max-vertical-offset="1134">
-              <caret line="25" column="16" selection-start-line="25" selection-start-column="16" selection-end-line="25" selection-end-column="16" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="users_controller.rb" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/controllers/api/v1/users_controller.rb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="252" max-vertical-offset="1152">
-              <caret line="14" column="0" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.15177065" vertical-offset="0" max-vertical-offset="1152">
+              <caret line="5" column="15" selection-start-line="5" selection-start-column="15" selection-end-line="5" selection-end-column="15" />
               <folding />
             </state>
           </provider>
@@ -591,7 +580,7 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="FullScreen" value="false" />
-    <property name="SearchEverywhereHistoryKey" value="gem&#9;FILE&#9;file:///home/datenshi/toppyshare-backend/Gemfile&#10;app&#9;FILE&#9;file:///home/datenshi/toppyshare-backend/config/application.rb&#10;ite&#9;FILE&#9;file:///home/datenshi/toppyshare-backend/app/models/item.rb&#10;top&#9;FILE&#9;file:///home/datenshi/toppyshare-backend/app/models/top.rb&#10;user&#9;FILE&#9;file:///home/datenshi/toppyshare-backend/app/models/user.rb&#10;route&#9;FILE&#9;file:///home/datenshi/toppyshare-backend/config/routes.rb&#10;sch&#9;FILE&#9;file:///home/datenshi/toppyshare-backend/db/schema.rb&#10;add&#9;FILE&#9;file:///home/datenshi/toppyshare-backend/db/migrate/20150518103244_add_follower_to_user.rb&#10;gemfile&#9;FILE&#9;file:///home/datenshi/toppyshare-backend/Gemfile&#10;follow&#9;null&#9;null&#10;routes&#9;FILE&#9;file:///home/datenshi/toppyshare-backend/config/routes.rb&#10;seed&#9;FILE&#9;file:///home/datenshi/toppyshare-backend/db/seeds.rb&#10;item&#9;FILE&#9;file:///home/datenshi/toppyshare-backend/app/models/item.rb&#10;application.rb&#9;FILE&#9;file:///home/datenshi/toppyshare-backend/config/application.rb&#10;read&#9;FILE&#9;file:///home/datenshi/toppyshare-backend/README.md&#10;rou&#9;FILE&#9;file:///home/datenshi/toppyshare-backend/config/routes.rb&#10;rout&#9;FILE&#9;file:///home/datenshi/toppyshare-backend/config/routes.rb&#10;r&#9;FILE&#9;file:///home/datenshi/toppyshare-backend/config/routes.rb&#10;sche&#9;FILE&#9;file:///home/datenshi/toppyshare-backend/db/schema.rb" />
+    <property name="SearchEverywhereHistoryKey" value="gem&#9;FILE&#9;file:///home/datenshi/toppyshare-backend/Gemfile&#10;user&#9;FILE&#9;file:///home/datenshi/toppyshare-backend/app/models/user.rb&#10;app&#9;FILE&#9;file:///home/datenshi/toppyshare-backend/config/application.rb&#10;ite&#9;FILE&#9;file:///home/datenshi/toppyshare-backend/app/models/item.rb&#10;top&#9;FILE&#9;file:///home/datenshi/toppyshare-backend/app/models/top.rb&#10;route&#9;FILE&#9;file:///home/datenshi/toppyshare-backend/config/routes.rb&#10;sch&#9;FILE&#9;file:///home/datenshi/toppyshare-backend/db/schema.rb&#10;add&#9;FILE&#9;file:///home/datenshi/toppyshare-backend/db/migrate/20150518103244_add_follower_to_user.rb&#10;gemfile&#9;FILE&#9;file:///home/datenshi/toppyshare-backend/Gemfile&#10;follow&#9;null&#9;null&#10;routes&#9;FILE&#9;file:///home/datenshi/toppyshare-backend/config/routes.rb&#10;seed&#9;FILE&#9;file:///home/datenshi/toppyshare-backend/db/seeds.rb&#10;item&#9;FILE&#9;file:///home/datenshi/toppyshare-backend/app/models/item.rb&#10;application.rb&#9;FILE&#9;file:///home/datenshi/toppyshare-backend/config/application.rb&#10;read&#9;FILE&#9;file:///home/datenshi/toppyshare-backend/README.md&#10;rou&#9;FILE&#9;file:///home/datenshi/toppyshare-backend/config/routes.rb&#10;rout&#9;FILE&#9;file:///home/datenshi/toppyshare-backend/config/routes.rb&#10;r&#9;FILE&#9;file:///home/datenshi/toppyshare-backend/config/routes.rb&#10;sche&#9;FILE&#9;file:///home/datenshi/toppyshare-backend/db/schema.rb" />
     <property name="options.lastSelected" value="preferences.keymap" />
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="options.splitter.details.proportions" value="0.2" />
@@ -1039,13 +1028,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/user.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="558">
-          <caret line="11" column="73" selection-start-line="11" selection-start-column="73" selection-end-line="11" selection-end-column="73" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/models/top.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="252">
@@ -1064,6 +1046,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.18243243" vertical-offset="0" max-vertical-offset="592">
           <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1111,14 +1094,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/api/v1/users_controller.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1152">
-          <caret line="14" column="0" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/test/fixtures/users.yml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="414">
@@ -1159,14 +1134,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/config/application.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="122" max-vertical-offset="738">
-          <caret line="21" column="36" selection-start-line="21" selection-start-column="36" selection-end-line="21" selection-end-column="36" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/config/locales/en.yml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="592">
@@ -1177,16 +1144,40 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/api/v1/ui_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="378">
+        <state vertical-scroll-proportion="0.24283305" vertical-offset="0" max-vertical-offset="593">
           <caret line="8" column="7" selection-start-line="8" selection-start-column="7" selection-end-line="8" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/api/v1/users_controller.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1152">
+          <caret line="14" column="0" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/application.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="122" max-vertical-offset="738">
+          <caret line="21" column="36" selection-start-line="21" selection-start-column="36" selection-end-line="21" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/user.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="558">
+          <caret line="8" column="37" selection-start-line="8" selection-start-column="37" selection-end-line="8" selection-end-column="37" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Gemfile">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.51264757" vertical-offset="146" max-vertical-offset="1134">
-          <caret line="25" column="16" selection-start-line="25" selection-start-column="16" selection-end-line="25" selection-end-column="16" />
+        <state vertical-scroll-proportion="0.15177065" vertical-offset="0" max-vertical-offset="1152">
+          <caret line="5" column="15" selection-start-line="5" selection-start-column="15" selection-end-line="5" selection-end-column="15" />
           <folding />
         </state>
       </provider>
