@@ -22,3 +22,6 @@ test:
 
 production:
   adapter: postgresql
+  host: localhost
+  username: toppyshare
+  password: toppyshare
